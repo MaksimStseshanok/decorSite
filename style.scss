@@ -1,0 +1,598 @@
+$color-title: #f4f4f4;
+$color-form-title: #4a4a4a;
+$color-label-text: #716d6d;
+$color-label-strong: #b25252;
+$color-nav: #f7f7f7;
+$color-bg-form: #f2f2f2;
+$color-slider-text: #f0f0f0;
+$color-nav-footer: #bdbdbd;
+$color-subtitle: rgba(245, 245, 245, 0.82);
+$color-line: rgba(247, 247, 247, 0.48);
+$color-text: #aaa9a9;
+$footer-text: #c57c40;
+$color-bg-btn: #b36060;
+$color-bg-form-btn: #db7d3a;
+$color-text-btn: #fefefe;
+$color-border: rgba(150, 102, 53, 0.82);
+$color-burger-border: #686464;
+$color-bg-modal: rgba(32, 28, 27, 0.93);
+
+@mixin h1 {
+  font-family: Georgia;
+  font-weight: normal;
+  font-size: 48px;
+  color: $color-title;
+  text-transform: uppercase;
+  @media screen and (max-width: $desktop) {
+    font-size: 32px;
+  }
+}
+@mixin btn {
+  width: 205px;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-family: 'Lora';
+  font-size: 18px;
+  color: $color-text-btn;
+  cursor: pointer;
+  @media screen and (max-width: $ipad) {
+    width: 140px;
+    height: 30px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: $mobile) {
+    width: 115px;
+    height: 25px;
+    font-size: 12px;
+  }
+}
+
+$desktop: 1440px;
+$ipad: 1024px;
+$tablet: 768px;
+$mobile: 540px;
+
+html {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Lora', serif;
+  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0;
+}
+
+#my-page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+#my-header {
+  position: absolute;
+  top: -5%;
+  left: 0%;
+  border-right: 1px solid $color-burger-border;
+  color: #f4f4f4;
+  --mb-button-size: 50px;
+  --mb-bar-width: 0.45;
+  --mb-bar-height: 2px;
+  --mb-bar-spacing: 7px;
+  --mb-animate-timeout: 0.4s;
+  cursor: pointer;
+  @media screen and (min-width: 1025px) {
+    display: none;
+  }
+  @media screen and (max-width: $mobile) {
+    top: -12%;
+    left: -1.5%;
+    --mb-button-size: 50px;
+  }
+}
+
+.mm-menu_offcanvas {
+  max-width: 250px;
+  @media screen and (max-width: $mobile) {
+    max-width: 240px;
+  }
+}
+
+.mm-wrapper_opening .mm-menu_offcanvas.mm-menu_opened ~ .mm-slideout {
+  transform: translate3d(250px, 0, 0);
+  @media screen and (max-width: $mobile) {
+    transform: translate3d(240px, 0, 0);
+  }
+}
+
+.mm-navbar__title {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Noto Sans';
+  color: #4a4a4a !important;
+}
+
+.mm-listitem__text {
+  text-transform: uppercase;
+  font-family: 'Noto Sans';
+  font-size: 13px;
+  color: #6a5346 !important;
+}
+
+.container {
+  max-width: 1920px;
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+  @media screen and (max-width: $ipad) {
+    flex-direction: column;
+  }
+}
+
+.section {
+  max-width: 310px;
+  background-image: url(./images/nav-bg.png);
+  &__inner {
+    margin: 0 auto;
+  }
+  @media screen and (max-width: $ipad) {
+    max-width: 100%;
+  }
+}
+
+.logo {
+  position: relative;
+  text-align: center;
+  padding: 0px 35px;
+  margin-bottom: 150px;
+  @media screen and (max-width: $desktop) {
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: $ipad) {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+    padding-right: 0px;
+  }
+  &__title {
+    @include h1();
+    border: 3px solid $color-border;
+    margin: 32px 0px;
+    padding-bottom: 10px;
+    @media screen and (max-width: $ipad) {
+      display: inline-block;
+      font-size: 28px;
+      border: none;
+      margin: 0;
+      padding: 6px 0px 7px 27px;
+    }
+    @media screen and (max-width: $mobile) {
+      font-size: 20px;
+      padding-left: 15px;
+    }
+  }
+  &__subtitle {
+    position: absolute;
+    bottom: 47%;
+    right: 18%;
+    text-transform: uppercase;
+    color: $color-subtitle;
+    font-size: 15.17px;
+    letter-spacing: 1.1px;
+    background-image: url(./images/nav-bg.png);
+    padding: 0px 5px;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0%;
+      left: -65%;
+      display: inline-block;
+      height: 2px;
+      width: 82px;
+      background-color: $color-border;
+      @media screen and (max-width: $desktop) {
+        left: -82%;
+      }
+    }
+    @media screen and (max-width: $ipad) {
+      display: none;
+    }
+    @media screen and (max-width: $desktop) {
+      font-size: 12px;
+      bottom: 52%;
+    }
+  }
+  &__text {
+    text-align: left;
+    color: $color-text;
+    line-height: 20px;
+    @media screen and (max-width: $desktop) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: $ipad) {
+      display: none;
+    }
+  }
+  &__phone {
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    border-left: 1px solid $color-burger-border;
+    padding: 10px;
+    cursor: pointer;
+    @media screen and (min-width: 1025px) {
+      display: none;
+    }
+    @media screen and (max-width: $mobile) {
+      width: 40px;
+    }
+  }
+}
+
+.menu {
+  width: 100%;
+  margin-bottom: 90px;
+  &__item {
+    padding-left: 38px;
+    line-height: 62px;
+    border-bottom: 2px solid $color-line;
+    &-extra {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 35px;
+        height: 23px;
+        background: url(./images/new.png) no-repeat;
+      }
+    }
+    &:first-child {
+      padding-top: 0;
+    }
+    @media screen and (max-width: $desktop) {
+      line-height: 40px;
+    }
+  }
+  &__link {
+    display: inline-block;
+    color: $color-nav;
+    text-transform: uppercase;
+    padding: 0px 10px;
+    margin: 0px -10px;
+    &-extra {
+      color: #f4f4f4;
+      position: relative;
+      z-index: 1;
+      padding-right: 12px;
+    }
+    @media screen and (max-width: $desktop) {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: $desktop) {
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: $ipad) {
+    display: none;
+  }
+}
+
+.footer {
+  padding-left: 38px;
+  &__menu {
+    margin-bottom: 50px;
+    &__item {
+      line-height: 32px;
+      @media screen and (max-width: $desktop) {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+    &__link {
+      color: $color-nav-footer;
+    }
+    @media screen and (max-width: $desktop) {
+      margin-bottom: 20px;
+    }
+  }
+  &__text {
+    line-height: 26px;
+    font-size: 20px;
+    color: $color-text;
+    @media screen and (max-width: $desktop) {
+      font-size: 16px;
+    }
+  }
+  &__call {
+    position: relative;
+    line-height: 26px;
+    color: $footer-text;
+    cursor: pointer;
+    &::after {
+      content: '- - - - - - - - - - - - -';
+      position: absolute;
+      bottom: -50%;
+      left: 0;
+    }
+  }
+
+  @media screen and (max-width: $ipad) {
+    display: none;
+  }
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  &__footer {
+    height: 100%;
+    background-image: url(./images/marbre.png);
+  }
+}
+
+.slider {
+  position: relative;
+  &__item {
+    height: 100vh;
+    @media screen and (max-width: $ipad) {
+      width: 100%;
+      max-height: 410px;
+      @media screen and (max-width: $mobile) {
+        max-height: 234px;
+      }
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    background: url(./images/slider1.png) no-repeat center center/cover;
+  }
+  &__info {
+    position: absolute;
+    bottom: 14%;
+    left: 5%;
+    max-width: 840px;
+    background: rgba(57, 49, 43, 0.8);
+    box-shadow: 20px 30px 0px 0px rgba(45, 38, 30, 0.4);
+    font-size: 58px;
+    line-height: 56px;
+    @media screen and (max-width: $desktop) {
+      bottom: 24%;
+      left: 2%;
+      font-size: 32px;
+      line-height: 30px;
+      max-width: 470px;
+      letter-spacing: 0.5px;
+    }
+    @media screen and (max-width: $mobile) {
+      max-width: 295px;
+      font-size: 20px;
+      line-height: 20px;
+      bottom: 28%;
+      box-shadow: 10px 12px 0px 0px rgba(45, 38, 30, 0.4);
+    }
+  }
+  &__text {
+    text-transform: uppercase;
+    color: $color-slider-text;
+    padding: 10px 10px;
+  }
+  &__small-text {
+    font-size: 36px;
+    letter-spacing: 1.5px;
+    @media screen and (max-width: $desktop) {
+      font-size: 20px;
+      letter-spacing: 0.3px;
+    }
+    @media screen and (max-width: $mobile) {
+      font-size: 14px;
+    }
+  }
+  &__btn {
+    @include btn;
+    position: absolute;
+    bottom: -32%;
+    left: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $color-bg-btn;
+    text-align: left;
+    padding: 0px 15px 0px 25px;
+    @media screen and (max-width: $ipad) {
+      bottom: -44%;
+    }
+    @media screen and (max-width: $ipad) {
+      bottom: -38%;
+      left: 5%;
+      padding: 10px;
+    }
+  }
+}
+
+.slider__btn-arrow {
+  width: 12% !important;
+}
+
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-bg-modal;
+  z-index: 1;
+  transition: all 0.5s ease 0s;
+
+  &__form {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 47.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 940px;
+    display: flex;
+    margin-top: 55px;
+    z-index: 2;
+    transition: all 0.5s ease 0s;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(51, 51, 51, 0.9) url(./images/Spinner-1s-200px.gif)
+        center / 120px no-repeat;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease 0s;
+    }
+    &._sending::after {
+      opacity: 1;
+      visibility: visible;
+    }
+    @media screen and (max-width: $tablet) {
+      max-width: 520px;
+      margin-top: 0;
+    }
+    @media screen and (max-width: $mobile) {
+      max-width: 270px;
+    }
+    &-close {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: 2%;
+      top: 3%;
+      cursor: pointer;
+      background: url(./images/close-btn.png) no-repeat;
+      background-size: cover;
+    }
+    &-img {
+      width: 100%;
+      max-width: 350px;
+      max-height: 540px;
+      background: url(./images/form-img.png) no-repeat;
+      background-size: cover;
+      background-position: -50px 0px;
+      @media screen and (max-width: $mobile) {
+        display: none;
+      }
+    }
+  }
+}
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form {
+  width: 100%;
+  background-color: $color-bg-form;
+  padding: 40px 60px 30px 60px;
+  @media screen and (max-width: $mobile) {
+    padding: 15px;
+  }
+  @media screen and (max-width: $tablet) {
+    padding: 20px 40px 20px 40px;
+  }
+  &__title {
+    color: $color-form-title;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    @media screen and (max-width: $tablet) {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  &__item {
+    margin-bottom: 30px;
+    @media screen and (max-width: $tablet) {
+      margin-bottom: 10px;
+    }
+  }
+  &__label {
+    display: block;
+    color: $color-label-text;
+    font-size: 14px;
+    margin-bottom: 10px;
+    &-strong {
+      color: $color-label-strong;
+    }
+    @media screen and (max-width: $tablet) {
+      margin-bottom: 5px;
+    }
+  }
+  &__input {
+    width: 100%;
+    height: 42px;
+    border: none;
+    padding: 0px 5px;
+    &._error {
+      border: 1px solid #b75d5d;
+    }
+    &.textarea {
+      min-height: 100px;
+      resize: none;
+    }
+  }
+  &__button {
+    @include btn;
+    background: $color-bg-form-btn;
+    float: right;
+  }
+}
+
+.owl-carousel .owl-dots.disabled {
+  display: block;
+}
